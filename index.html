@@ -15,17 +15,21 @@
             color: #333;
         }
         
-        /* Cor de fundo do rótulo (Header) */
+        /* Cor de fundo do rótulo (Header) - Corrigido para um hexadecimal válido (F0FFFF = Azure, um turquesa bem claro) */
         header {
-            background-color: #E0FFF; /* Turquesa Bem Claro */
+            background-color: #F0FFFF; 
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         
         .logo {
-            font-size: 2.0em; /* Ajustado para melhor visualização no header */
+            font-size: 2.0em; 
             font-weight: bold;
             color: #333;
             line-height: 1.2;
+        }
+        .logo h2 {
+            /* Remove a margem padrão do h2 para alinhar melhor no header */
+            margin-bottom: 0; 
         }
         .logo span {
             font-size: 0.5em;
@@ -38,7 +42,6 @@
         .header-contact-area {
             display: flex;
             align-items: center;
-            /* No Bootstrap, usaremos d-flex, flex-column e flex-lg-row */
         }
         
         .contact-info p {
@@ -65,13 +68,11 @@
         }
 
         /* --- ALTERAÇÃO PARA CENTRALIZAR O BOTÃO EM TELAS PEQUENAS --- */
-        /* A regra flex-column do HTML já empilha os itens no celular. 
-           Basta centralizá-los e garantir que o texto de contato também centralize. */
         @media (max-width: 991.98px) {
             .header-contact-area {
                 /* Centraliza os itens horizontalmente (que estão empilhados) */
                 align-items: center !important; 
-                width: 100%; /* Garante que o container ocupe o espaço necessário para centralizar */
+                width: 100%; 
             }
             .contact-info {
                 /* Centraliza o texto das informações de contato */
@@ -161,27 +162,45 @@
         <p class="mb-0">&copy; 2025 Instituto Eudilene Barbosa. Todos os direitos reservados.</p>
     </footer>
 
-<script>
-        const slider = document.getElementById('imageSlider');
-        const slides = slider.querySelectorAll('.slide');
-        let currentIndex = 0;
-
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % slides.length;
-            const offset = -currentIndex * 100;
-            slider.style.transform = `translateX(${offset}%)`;
-        }
-
-        // Troca a imagem a cada 5 segundos (5000 milissegundos)
-        setInterval(nextSlide, 5000);
-    </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <a href="https://api.whatsapp.com/send?phone=5599984896117&text=Olá!%20Gostaria%20de%20Informações%20sobre:" id="waurlsite" class="bt-whatsApp" target="_blank" style="right:25px; position:fixed;width:60px;height:60px;bottom:40px;z-index:100;">
-    <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgdmlld0JveD0iMjYxOSA1MDYgMTIwIDEyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogIzI3ZDA0NTsKICAgICAgfQoKICAgICAgLmNscy0yLCAuY2xzLTUgewogICAgICAgIGZpbGw6IG5vbmU7CiAgICAgIH0KCiAgICAgIC5jbHMtMiB7CiAgICAgICAgc3Ryb2tlOiAjZmZmOwogICAgICAgIHN0cm9rZS13aWR0aDogNXB4OwogICAgICB9CgogICAgICAuY2xzLTMgewogICAgICAgIGZpbGw6ICNmZmY7CiAgICAgIH0KCiAgICAgIC5jbHMtNCB7CiAgICAgICAgc3Ryb2tlOiBub25lOwogICAgICB9CiAgICA8L3N0eWxlPjwvZGVmcz48ZyBkYXRhLW5hbWU9Ikdyb3VwIDM2IiBpZD0iR3JvdXBfMzYiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIzMDAgNzMpIj48Y2lyY2xlIGNsYXNzPSJjbHMtMSIgY3g9IjYwIiBjeT0iNjAiIGRhdGEtbmFtZT0iRWxsaXBzZSAxOCIgaWQ9IkVsbGlwc2VfMTgiIHI9IjYwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMTkgNDMzKSIvPjxnIGRhdGEtbmFtZT0iR3JvdXAgMzUiIGlkPSJHcm91cF8zNSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjU0IDM4NikiPjxnIGRhdGEtbmFtZT0iR3JvdXAgMzQiIGlkPSJHcm91cF8zNCI+PGcgY2xhc3M9ImNscy0yIiBkYXRhLW5hbWU9IkVsbGlwc2UgMTkiIGlkPSJFbGxpcHNlXzE5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5NCA3NSkiPjxjaXJjbGUgY2xhc3M9ImNscy00IiBjeD0iMzEuNSIgY3k9IjMxLjUiIHI9IjMxLjUiLz48Y2lyY2xlIGNsYXNzPSJjbHMtNSIgY3g9IjMxLjUiIGN5PSIzMS41IiByPSIyOSIvPjwvZz48cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik0xNDI0LDE5MWwtNC42LDE2LjMsMTYuOS00LjcuOS01LjItMTEsMy41LDIuOS0xMC41WiIgZGF0YS1uYW1lPSJQYXRoIDEyNiIgaWQ9IlBhdGhfMTI2IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTMyNSAtNjgpIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTI2Niw5MGMwLS4xLDMuNS0xMS43LDMuNS0xMS43bDguNCw3LjlaIiBkYXRhLW5hbWU9IlBhdGggMTI3IiBpZD0iUGF0aF8xMjciIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMTY1IDQzKSIvPjwvZz48cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik0xNDM5LjMsMTYwLjZhOS40LDkuNCwwLDAsMC0zLjksNi4xYy0uNSwzLjksMS45LDcuOSwxLjksNy45YTUwLjg3Niw1MC44NzYsMCwwLDAsOC42LDkuOCwzMC4xODEsMzAuMTgxLDAsMCwwLDkuNiw1LjEsMTEuMzc4LDExLjM3OCwwLDAsMCw2LjQuNiw5LjE2Nyw5LjE2NywwLDAsMCw0LjgtMy4yLDkuODUxLDkuODUxLDAsMCwwLC42LTIuMiw1Ljg2OCw1Ljg2OCwwLDAsMCwwLTJjLS4xLS43LTcuMy00LTgtMy44cy0xLjMsMS41LTIuMSwyLjYtMS4xLDEuNi0xLjksMS42LTQuMy0xLjQtNy42LTQuNGExNS44NzUsMTUuODc1LDAsMCwxLTQuMy02cy42LS43LDEuNC0xLjhhNS42NjQsNS42NjQsMCwwLDAsMS4zLTJjMC0uNS0yLjgtNy42LTMuNS03LjlBMTEuODUyLDExLjg1MiwwLDAsMCwxNDM5LjMsMTYwLjZaIiBkYXRhLW5hbWU9IlBhdGggMTI4IiBpZD0iUGF0aF8xMjgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMzI2LjMzMiAtNjguNDY3KSIvPjwvZz48L2c+PC9zdmc+" alt="" width="60px">
+<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgdmlld0JveD0iMjYxOSA1MDYgMTIwIDEyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogIzI3ZDA0NTsKICAgICAgfQoKICAgICAgLmNscy0yLCAuY2xzLTUgewogICAgICAgIGZpbGw6IG5vbmU7CiAgICAgIH0KCiAgICAgIC5jbHMtMiB7CiAgICAgICAgc3Ryb2tlOiAjZmZmOwogICAgICAgIHN0cm9rZS13aWR0aDogNXB4OwogICAgICB9CgogICAgICAuY2xzLTMgewogICAgICAgIGZpbGw6ICNmZmY7CiAgICAgIH0KCiAgICAgIC5jbHMtNCB7CiAgICAgICAgc3Ryb2tlOiBub25lOwogICAgICB9CiAgICA8L3N0eWxlPjwvZGVmcz48ZyBkYXRhLW5hbWU9Ikdyb3VwIDM2IiBpZD0iR3JvdXBfMzYiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIzMDAgNzMpIj48Y2lyY2xlIGNsYXNzPSJjbHMtMSIgY3g9IjYwIiBjeT0iNjAiIGRhdGEtbmFtZT0iRWxsaXBzZSAxOCIgaWQ9IkVsbGlwc2VfMTgiIHI9IjYwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMTkgNDMzKSIvPjxnIGRhdGEtbmFtZT0iR3JvdXAgMzUiIGlkPSJHcm91cF8zNSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjU0IDM4NikiPjxnIGRhdGEtbmFtZT0iR3JvdXAgMzQiIGlkPSJHcm91cF8zNCI+PGcgY2xhc3M9ImNscy0yIiBkYXRhLW5hbWU9IkVsbGlwc2UgMTkiIGlkPSJFbGxpcHNlXzE5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5NCA3NSkiPjxjaXJjbGUgY2xhc3M9ImNscy00IiBjeD0iMzEuNSIgY3k9IjMxLjUiIHI9IjMxLjUiLz48Y2lyY2xlIGNsYXNzPSJjbHMtNSIgY3g9IjMxLjUiIGN5PSIzMS41IiByPSIyOSIvPjwvZz48cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik0xNDI0LDE5MWwtNC42LDE2LjMsMTYuOS00LjcuOS01LjItMTEsMy41LDIuOS0xMC41WiIgZGF0YS1uYW1lPSJQYXRoIDEyNiIgaWQ9IlBhdGhfMTI2IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTMyNSAtNjgpIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTI2Niw5MGMwLS4xLDMuNS0xMS43LDMuNS0xMS43bDguNCw3LjlaIiBkYXRhLW5hbWU9IlBhdGggMTI3IiBpZD0iUGF0aF8xMjciIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMTY1IDQzKSIvPjwvZz48cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik0xNDM5LjMsMTYwLjZhOS40LDkuNCwwLDAsMC0zLjksNi4xYy0uNSwzLjksMS45LDcuOSwxLjksNy45YTUwLjg3Niw1MC44NzYsMCwwLDAsOC42LDkuOCwzMC4xODEsMzAuMTgxLDAsMCwwLDkuNiw1LjEsMTEuMzc4LDExLjM3OCwwLDAsMCw2LjQuNiw5LjE2Nyw5LjE2NywwLDAsMCw0LjgtMy4yLDkuODUxLDkuODUxLDAsMCwwLC42LTIuMiw1Ljg2OCw1Ljg2OCwwLDAsMCwwLTJjLS4xLS43LTcuMy00LTgtMy44cy0xLjMsMS41LTIuMSwyLjYtMS4xLDEuNi0xLjksMS42LTQuMy0xLjQtNy42LTQuNGExNS44NzUsMTUuODc1LDAsMCwxLTQuMy02cy42LS43LDEuNC0xLjhhNS42NjQsNS42NjQsMCwwLDAsMS4zLTIuNGMwLS41LTIuOC03LjYtMy41LTcuOUExMS44NTIsMTEuODUyLDAsMCwwLDE0MzkuMywxNjAuNloiIGRhdGEtbmFtZT0iUGF0aCAxMjgiIGlkPSJQYXRoXzEyOCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEzMjYuMzMyIC02OC40NjcpIi8+PC9nPjwvZz48L3N2Zz4=" alt="" width="60px">
     </a>
-    <span id="alertWapp" style="right:30px; visibility: hidden; position:fixed;	width:17px;	height:17px;bottom:90px; background:red;z-index:101; font-size:11px;color:#fff;text-align:center;border-radius: 50px; font-weight:bold;line-height: normal; "> 1 </span>
+<span id="alertWapp" style="
+    right: 25px; /* Alinhe com o lado direito do ícone */
+    bottom: 85px; /* Posicione no topo do ícone (40 + 60 = 100, então 85 deve funcionar) */
+    position:fixed;	
+    width:17px;	
+    height:17px;
+    background:#ff0000; /* Use um vermelho sólido (#ff0000) */
+    z-index:101; 
+    font-size:11px;
+    color:#fff;
+    text-align:center;
+    border-radius: 50px; 
+    font-weight:bold;
+    line-height: 17px; /* Centraliza o "1" verticalmente */
+    visibility: hidden;
+"> 1 </span>
     <div id="msg1" style="right: 90px; visibility: visible; background: #1EBC59; color: #fff; position: fixed; width: 200px; bottom: 52px; text-align: center; font-size: 13px; line-height: 31px; height: 32px; border-radius: 100px; z-index: 100; ">Fale Conosco</div>
-    <script type="text/javascript">function showIt2() {document.getElementById("msg1").style.visibility = "visible";}    setTimeout("showIt2()", 5000); function hiddenIt() {document.getElementById("msg1").style.visibility = "hidden";}setTimeout("hiddenIt()", 15000); function showIt3() {document.getElementById("msg1").style.visibility = "visible";} setTimeout("showIt3()", 25000);  msg1.onclick = function() {document.getElementById('msg1').style.visibility = "hidden"; };function alertW() { document.getElementById("alertWapp").style.visibility = "visible";	} setTimeout("alertW()", 15000); </script>
-    <script type="text/javascript">var waurlsite = document.getElementById("waurlsite");var urlsite = window.location.href;var endereco = "https://api.whatsapp.com/send?phone=5599984896117&text=Olá!%20Gostaria%20de%20Informações%20sobre:%0a%20Estou%20na%20página:%20" + urlsite; waurlsite.href = endereco;</script></body>
-</html>  
+    <script type="text/javascript">
+        function showIt2() {document.getElementById("msg1").style.visibility = "visible";}
+        setTimeout("showIt2()", 5000); 
+        function hiddenIt() {document.getElementById("msg1").style.visibility = "hidden";}
+        setTimeout("hiddenIt()", 15000); 
+        function showIt3() {document.getElementById("msg1").style.visibility = "visible";} 
+        setTimeout("showIt3()", 25000);
+        msg1.onclick = function() {document.getElementById('msg1').style.visibility = "hidden"; };
+        function alertW() { document.getElementById("alertWapp").style.visibility = "visible";	} 
+        setTimeout("alertW()", 15000); 
+    </script>
+    <script type="text/javascript">
+        var waurlsite = document.getElementById("waurlsite");
+        var urlsite = window.location.href;
+        // Corrigido para concatenar a URL corretamente com quebras de linha %0a
+        var endereco = "https://api.whatsapp.com/send?phone=5599984896117&text=Ol%C3%A1!%20Gostaria%20de%20Informa%C3%A7%C3%B5es%20sobre%3A%0A%0AEstou%20na%20p%C3%A1gina%3A%20" + encodeURIComponent(urlsite); 
+        waurlsite.href = endereco;
+    </script>
+</body>
+</html>
